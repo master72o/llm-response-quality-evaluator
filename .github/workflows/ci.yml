@@ -1,0 +1,36 @@
+name: Evaluation Framework CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        python-version: ["3.10", "3.11", "3.12"]
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up Python ${{ matrix.python-version }}
+      uses: actions/setup-python@v4
+      with:
+        python-version: ${{ matrix.python-version }}
+
+    - name: Install dependencies
+      run: |
+        python -m pip install --upgrade pip
+        pip install -r requirements.txt
+        pip install .
+
+    - name: Run unit and integration tests
+      run: |
+        pytest --cov=evaluator tests/
+
+    - name: Test CLI Pipeline Execution
+      run: |
+        python -m evaluator.cli evaluate --input data/evaluation_dataset.jsonl --output-dir results/ --report reports/summary_report.md
