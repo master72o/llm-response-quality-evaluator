@@ -1,6 +1,6 @@
 # LLM Response Quality Evaluator
 
-[![CI Pipeline](https://github.com/master72o/ai-training-project/actions/workflows/ci.yml/badge.svg)](https://github.com/master72o/ai-training-project/actions)
+[![CI Pipeline](https://github.com/master72o/llm-response-quality-evaluator/actions/workflows/ci.yml/badge.svg)](https://github.com/master72o/llm-response-quality-evaluator/actions)
 [![Python 3.9+](https://img.shields.io/badge/python-3.9%2B-blue.svg)](https://www.python.org/downloads/)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
@@ -148,7 +148,7 @@ Failures are categorized into 9 discrete error types:
 
 ```bash
 # Clone repository
-git clone https://github.com/master72o/ai-training-project.git
+git clone https://github.com/master72o/llm-response-quality-evaluator.git
 cd llm-response-quality-evaluator
 
 # Create and activate virtual environment
